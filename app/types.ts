@@ -1,10 +1,14 @@
-export type UserCredentials={
-    name:string,
+
+
+export type LoginCredentials={
     email:string,
     password:string
 }
+export type SignupCredentials=LoginCredentials &{
+    name:string,
+}
 
-export type UserDB=UserCredentials & {
+export type UserDB=SignupCredentials & {
     id:string
     emailVerified:boolean
 }

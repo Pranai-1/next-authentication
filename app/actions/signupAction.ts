@@ -5,7 +5,7 @@
 import { redirect } from "next/navigation";
 import { prisma } from "../lib/prisma";
 import { createSession } from "../lib/session";
-import { UserCredentials } from "../types";
+import { SignupCredentials } from "../types";
 import { signupSchema } from "../zodSchema";
 
 export async function signupAction(prevState:any,formData: FormData) {
@@ -17,7 +17,7 @@ export async function signupAction(prevState:any,formData: FormData) {
         errors:result.error.flatten().fieldErrors
     }
    }
-   const credentials:UserCredentials=result.data
+   const credentials:SignupCredentials=result.data
    let user
    try{
       user=await prisma.user.create({
