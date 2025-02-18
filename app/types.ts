@@ -14,6 +14,10 @@ export type UserDB=SignupCredentials & {
 }
 
 export type SessionPayload = {
-    userId: string;
-    expiresAt: Date;
+    user:{
+        name:string,
+        email:string,
+        image:string
+    }
+    expires:Date
   };

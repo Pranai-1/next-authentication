@@ -3,8 +3,8 @@
 
 
 import { redirect } from "next/navigation";
-import { prisma } from "../lib/prisma";
-import { createSession } from "../lib/session";
+import { prisma } from "../../lib/prisma";
+import { createSession } from "../../lib/session";
 import { LoginCredentials } from "../types";
 import { loginSchema } from "../zodSchema";
 
@@ -31,7 +31,7 @@ export async function loginAction(prevState:any,formData: FormData) {
    }
 
    if(user){
-    await createSession(user.id)
+    await createSession(user)
     return redirect("/dashboard");
  }
 }

@@ -1,9 +1,10 @@
 
 
 
-// import GoogleSignIn from "../components/GoogleSignInForm"
+import GoogleSignIn from "../components/GoogleSignInForm"
 
 import CustomLogin from "../components/CustomLogin";
+import Link from "next/link";
 
 export default function Signup(){
 
@@ -16,9 +17,13 @@ export default function Signup(){
              <CustomLogin/>
                 <div className="mt-6 w-[100%] flex flex-col gap-3 items-center justify-center">
                         <p className="text-center font-medium">OR</p>
-                 {/* <GoogleSignIn/> */}
+                 <GoogleSignIn/>
                         
                     </div>
+                    <div className="text-blue-600 p-2 font-medium mt-4 flex justify-center">
+                    <Link  href="/signup">Not registered yet? Sign up here.</Link>
+                    </div>
+                   
             </div>
           
         </div>

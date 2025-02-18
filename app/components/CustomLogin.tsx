@@ -3,6 +3,7 @@ import { useActionState } from "react";
 
 import SubmitButton from "./SubmitButton";
 import { loginAction } from "../actions/loginAction";
+import Link from "next/link";
 
 
 export default function CustomLogin() {
@@ -38,6 +39,8 @@ export default function CustomLogin() {
                    <SubmitButton/>
                
             </div>
+          
+
         </form>
     );
 }
