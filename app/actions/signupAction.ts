@@ -1,6 +1,10 @@
 "use server";
 
 
+
+import { redirect } from "next/navigation";
+import { prisma } from "../lib/prisma";
+import { createSession } from "../lib/session";
 import { UserCredentials } from "../types";
 import { signupSchema } from "../zodSchema";
 
@@ -14,5 +18,20 @@ export async function signupAction(prevState:any,formData: FormData) {
     }
    }
    const credentials:UserCredentials=result.data
-   console.log(credentials)
+   let user
+   try{
+      user=await prisma.user.create({
+        data:{
+            ...credentials,
+        },
+     })
+    
+   }catch(error){
+    console.log(error)
+   }
+
+   if(user){
+    await createSession(user.id)
+    return redirect("/dashboard");
+ }
 }

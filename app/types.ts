@@ -8,3 +8,8 @@ export type UserDB=UserCredentials & {
     id:string
     emailVerified:boolean
 }
+
+export type SessionPayload = {
+    userId: string;
+    expiresAt: Date;
+  };
