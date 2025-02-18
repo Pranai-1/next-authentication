@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import SignoutButton from "./components/SignOutButton";
 import getUserSession from "@/lib/getUserSession";
 import CustomSignOut from "./components/CustomSignOut";
+import UpdatePassword from "./components/UpdatePassword";
 
 
 export default async function Home() {
@@ -18,6 +19,7 @@ export default async function Home() {
     <p>Welcome to next authentication</p>
     {session && <SignoutButton/> }
      {customSession && <CustomSignOut/>}
+     {session?.user?.email && <UpdatePassword email={session.user?.email}/>}
    </div>
   );
 }
